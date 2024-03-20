@@ -4,8 +4,8 @@ import { useSnapshot } from "valtio";
 import state from "../store";
 import ShipmentGeneralInformation from "../components/ShipmentGeneralInformation";
 import ShipmentStepper from "../components/ShipmentStepper";
-import ShipmentDetailsTable from "../components/ShipmentDetailsTable";
 import ShipmentLocation from "../components/ShipmentLocation";
+import { Table } from "antd";
 
 const ShipmentDetails = () => {
   const snap = useSnapshot(state);
@@ -34,8 +34,8 @@ const ShipmentDetails = () => {
 
         {/* Shipment details table and delivery location */}
         <div className="flex justify-between lg:flex-col mt-6 p-4 gap-4">
-        <ShipmentDetailsTable />
         <ShipmentLocation />
+        <Table />
         </div>
 
 
