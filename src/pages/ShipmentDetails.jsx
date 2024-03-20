@@ -5,11 +5,10 @@ import state from "../store";
 import ShipmentGeneralInformation from "../components/ShipmentGeneralInformation";
 import ShipmentStepper from "../components/ShipmentStepper";
 import ShipmentLocation from "../components/ShipmentLocation";
-import { Table } from "antd";
+import Table from "../components/Table";
 
 const ShipmentDetails = () => {
   const snap = useSnapshot(state);
-
 
   useEffect(() => {
     fetch(`https://tracking.bosta.co/shipments/track/${snap.trackingNumber}`)
@@ -19,7 +18,6 @@ const ShipmentDetails = () => {
         console.error("error fetching shipment details", error)
       );
   }, [snap.trackingNumber]);
-  
 
   return (
     <div>
@@ -34,11 +32,10 @@ const ShipmentDetails = () => {
 
         {/* Shipment details table and delivery location */}
         <div className="flex justify-between lg:flex-col mt-6 p-4 gap-4">
-        <ShipmentLocation />
-        <Table />
+          <Table />
+          <ShipmentLocation />
         </div>
       </div>
-      
     </div>
   );
 };
