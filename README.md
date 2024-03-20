@@ -13,12 +13,12 @@
 - Responsiveness: Responsive.
   
 - Live Link:
- ![homeEnglish](https://github.com/mona9855/Bosta-Task/assets/89538929/edb9397a-41c9-4341-a39a-0d0680c4e80f)
-![cancelledEnglish](https://github.com/mona9855/Bosta-Task/assets/89538929/fefc1069-6cb5-4657-b45c-3c4c54b6e107)
-![tableEnglish](https://github.com/mona9855/Bosta-Task/assets/89538929/83e41a52-75c0-4312-95cb-65d37a5519a6)
-
-![tableEnglish](https://github.com/mona9855/Bosta-Task/assets/89538929/7f9dc04f-8708-4fc8-a72c-9b463c43d066)
-![Screenshot 2024-03-20 142026](https://github.com/mona9855/Bosta-Task/assets/89538929/f70c20f4-88bc-4fce-a4e5-78bc7ffd8479)
+ 
+![homeEnglish](https://github.com/mona9855/Bosta-Task/assets/89538929/113b01e4-ca8b-4023-af03-8c85723a61c9)
+![homeArabic](https://github.com/mona9855/Bosta-Task/assets/89538929/b8d0f88a-1f46-442a-adb3-0bfab35ba5a5)
+![cancelledEnglish](https://github.com/mona9855/Bosta-Task/assets/89538929/cd0bcbac-f180-4581-8903-1d9dc28bcd8a)
+![Screenshot 2024-03-20 142026](https://github.com/mona9855/Bosta-Task/assets/89538929/ad041c9c-1c65-430a-a2f7-e9af71ab5600)
+![tableEnglish](https://github.com/mona9855/Bosta-Task/assets/89538929/bb1d6f06-555b-4a46-a046-5c63db5e1ba2)
 
 
 
