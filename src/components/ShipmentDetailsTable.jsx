@@ -14,6 +14,7 @@ import {
   tableCellClasses,
 } from "@mui/material";
 
+import { createTheme } from "@mui/material/styles"; 
 import styled from "@emotion/styled";
 import { FormattedMessage } from "react-intl";
 import { apiArabicData } from "../translations/apiArabicData";
@@ -34,7 +35,11 @@ const ShipmentDetailsTable = () => {
     reasonColor = "text-red-600";
   }
 
- 
+  const theme = createTheme({
+    typography: {
+      fontFamily: [language === "en" ? "poppins" : "cairo"].join(","),
+    },
+  });
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -61,7 +66,7 @@ const ShipmentDetailsTable = () => {
       <h1><FormattedMessage defaultMessage="Shipment Details" id="shpment.details"/></h1>
 
       <div className="mt-4">
-       
+        <ThemeProvider theme={theme}>
           <TableContainer component={Paper}>
             <Table
               sx={{ minWidth: 650, fontFamily: "poppins" }}
@@ -107,6 +112,7 @@ const ShipmentDetailsTable = () => {
               </TableBody>
             </Table>
           </TableContainer>
+        </ThemeProvider>
       </div>
     </div>
   );
