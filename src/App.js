@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Tracking from "./pages/Tracking";
+import ShipmentDetails from "./pages/ShipmentDetails";
+import { IntlProvider } from "react-intl";
+import { useSnapshot } from "valtio";
+import state from "./store";
+import { locales } from "./translations/ar";
+import { useEffect } from "react";
 
 function App() {
+  const snap = useSnapshot(state);
+
+  useEffect(() => {
+    const dir = snap.selectedLanguage === "en"? 'ltr' : 'rtl';
+    document.documentElement.dir = dir;
+    document.documentElement.style.fontFamily = snap.selectedLanguage === "en"? 'Poppins, sans-serif' : 'Cairo, sans-serif';
+ }, [snap.selectedLanguage]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <IntlProvider locale={snap.selectedLanguage} defaultLocale='en' messages={locales[snap.selectedLanguage]}
+    >
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Tracking />} />
+          <Route path="shipmentDetails" element={<ShipmentDetails />} />
+        </Routes>
+      </BrowserRouter>
+    </IntlProvider>
   );
 }
 
