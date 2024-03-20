@@ -9,7 +9,7 @@ const ShipmentLocation = () => {
   const snap = useSnapshot(state);
 
   return (
-    <div className='flex flex-col gap-3 lg:mt-5 '>
+    <div className='flex flex-col gap-3 lg:mt-5'>
       <h1 className='font-bold'>
         <FormattedMessage defaultMessage="Shipment Location" id='location'/>
       </h1>

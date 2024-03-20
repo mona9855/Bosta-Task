@@ -21,6 +21,13 @@ const Table = () => {
     reasonColor = "text-red-600";
   }
 
+  let fontClass;
+  if(english) {
+    fontClass = 'font-poppins';
+  } else {
+    fontClass = 'font-cairo';
+  }
+
   return (
     <div className="font-bold">
       <h1>
@@ -30,11 +37,11 @@ const Table = () => {
         />
       </h1>
 
-      <div className="mt-4">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">
+      <div className={`mt-4 ${fontClass} font-normal overflow-x-auto`}>
+        <table className="w-[100%]">
+          <thead className=" bg-slate-300 rounded-xl text-center">
+            <tr >
+              <th scope="col" className="p-5">
                 <FormattedMessage defaultMessage="Branch" id="branch" />
               </th>
               <th scope="col">
@@ -51,11 +58,11 @@ const Table = () => {
 
           <tbody>
             {apiData.map((row) => (
-              <tr key={row.timestamp}>
-                <td>{row.hub ? row.hub : "🚗"}</td>
-                <td>{moment(row.timestamp).format("M/DD/YYYY")}</td>
-                <td>{moment(row.timestamp).format("LT")}</td>
-                <td>
+              <tr key={row.timestamp} className="text-center">
+                <td className="p-4">{row.hub ? row.hub : "🚗"}</td>
+                <td className="p-4">{moment(row.timestamp).format("M/DD/YYYY")}</td>
+                <td className="p-4">{moment(row.timestamp).format("LT")}</td>
+                <td className="p-4">
                   {row.state.replace(/_/g, " ")} <br />{" "}
                   <span className={reasonColor}>{row.reason}</span>
                 </td>
