@@ -22,7 +22,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Tracking />} />
-          <Route path="shipmentDetails" element={<ShipmentDetails />} />
+          <Route path="/shipmentDetails" element={<ShipmentDetails />} />
         </Routes>
       </BrowserRouter>
     </IntlProvider>
