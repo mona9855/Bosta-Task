@@ -1,9 +1,12 @@
 import React from 'react'
+import { useSnapshot } from 'valtio'
+import state from '../store';
 import questionsImg from '../assets/questions.png';
 import { FormattedMessage } from 'react-intl';
 import { apiArabicData } from '../translations/apiArabicData';
 
 const ShipmentLocation = () => {
+  const snap = useSnapshot(state);
 
   return (
     <div className='flex flex-col gap-3 lg:mt-5 '>
@@ -11,7 +14,7 @@ const ShipmentLocation = () => {
         <FormattedMessage defaultMessage="Shipment Location" id='location'/>
       </h1>
       <div className='bg-slate-200 p-5 rounded-xl border-2 lg:w-[50%]'>
-        <p>{apiArabicData[1].hub}</p>
+        <p>{snap.selectedLanguage === 'en'? 'Cairo Sorting Facility' : apiArabicData[1].hub}</p>
       </div>
       <div className='flex p-5 rounded-xl border-2 border-slate-200 lg:w-[50%] md:flex-col'>
         <div>
