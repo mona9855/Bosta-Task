@@ -9,6 +9,7 @@ const ShipmentGeneralInformation = () => {
   const language = snap.selectedLanguage;
 
   const shipmentNumber = snap.trackingNumber;
+  console.log(snap.data)
 
   const originalShipmentStatus = snap.data.CurrentStatus.state;
   let EnglishShipmentStatus = originalShipmentStatus.replace(/_/g, " ");
