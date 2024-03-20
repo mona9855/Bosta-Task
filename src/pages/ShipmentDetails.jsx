@@ -25,19 +25,19 @@ const ShipmentDetails = () => {
     <div>
       <TrackingNavbar />
 
-      {/* <div className="mt-10"> */}
+      <div className="mt-10">
         {/* Shipment details general information */}
-        {/* <ShipmentGeneralInformation /> */}
+        <ShipmentGeneralInformation />
 
         {/* Stepper */}
-        {/* <ShipmentStepper /> */}
+        <ShipmentStepper />
 
         {/* Shipment details table and delivery location */}
-        {/* <div className="flex justify-between lg:flex-col mt-6 p-4 gap-4">
+        <div className="flex justify-between lg:flex-col mt-6 p-4 gap-4">
         <ShipmentLocation />
         <Table />
         </div>
-      </div> */}
+      </div>
       
     </div>
   );
