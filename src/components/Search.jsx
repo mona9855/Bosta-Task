@@ -43,7 +43,7 @@ const Search = () => {
   };
 
   return (
-    <div className="w-[50%] sm:w-[70%] xxs:w-[90%] flex absolute bottom-1">
+    <div className="w-[50%] sm:w-[70%] xxs:w-[90%] flex absolute bottom-2">
       <input
         type="text"
         placeholder={placeholder}

@@ -10,7 +10,7 @@ import { FormattedMessage } from "react-intl";
 
 const ShipmentDetails = () => {
   const isLoading = useSelector(state => state.isLoading.value);
-
+  const data = useSelector(state => state.data.value);
 
   return (
     <div>

@@ -26,15 +26,19 @@ const Tracking = () => {
             />
           </h1>
 
-          <p className="text-sm xxs:text-xs mb-16 text-center">
+          <p className="text-sm xxs:text-xs mb-20 text-center">
             <FormattedMessage
               id="tracking.paragraph"
               defaultMessage="All order updates will be available through this link."
             />
           </p>
+          
 
           {/* Search input */}
+          
+          <span className="block absolute bottom-[5rem] text-xs text-orange-600"><FormattedMessage defaultMessage="Ex for test:" id="examples"/> 7234258 / 13737343 / 67151313</span>
           <Search />
+          
         </div>
       </div>
 
