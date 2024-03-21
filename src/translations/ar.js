@@ -18,5 +18,6 @@ export const locales = {
       "questions": "هل يوجد مشكلة في شحنتك؟!",
       "report": "إبلاغ عن مشكلة",
       "shpment.details": "تفاصيل الشحنة",
+      "loading.wait": "جاري التحميل, برجاء الانتظار....",
     },
   };

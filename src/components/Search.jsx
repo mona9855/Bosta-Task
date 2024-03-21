@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setTrackingNumber } from "../features/trackingNumberSlice";
 import { Link } from "react-router-dom";
 import { setData } from "../features/dataSlice";
-import { useEffect } from "react";
 import { setIsLoading } from "../features/isLoadingSlice";
 
 const Search = () => {
@@ -12,16 +11,6 @@ const Search = () => {
   const dispatch = useDispatch();
   
 
-  // useEffect(() => {
-
-  //   fetch(`https://tracking.bosta.co/shipments/track/${trackingNumber}`)
-  //   .then((response) => response.json())
-  //   .then((data) => {dispatch(setIsLoading(false)); dispatch(setData(data)); console.log(apiData);})
-  //   .catch((error) =>
-  //     console.error("error fetching shipment details", error)
-  //   );
-
-  // }, [])
 
   const intl = useIntl();
   const placeholder =
