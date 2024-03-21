@@ -1,12 +1,15 @@
 import React from "react";
-import state from "../store";
 import { FormattedMessage } from "react-intl";
+import {  useSelector, useDispatch } from 'react-redux';
+import {setSelectedLanguage} from "../features/selectedLanguageSlice";
+
 
 const LanguageSelector = () => {
-
+  const dispatch = useDispatch() 
   const handleLanguageChange = (e) => {
-    state.selectedLanguage = e.target.value;
+    dispatch(setSelectedLanguage(e.target.value));
   };
+
 
   return (
     <div>

@@ -1,16 +1,15 @@
-import { useSnapshot } from "valtio";
-import state from "../store";
+
 import moment from "moment";
+import {  useSelector } from 'react-redux';
 import { FormattedMessage } from "react-intl";
 
 
 const ShipmentGeneralInformation = () => {
-  const snap = useSnapshot(state);
-  const language = snap.selectedLanguage;
+  const language = useSelector(state => state.selectedLanguage.value);
+  const data = useSelector(state => state.data.value);
+  const shipmentNumber = useSelector(state => state.trackingNumber.value);
 
-  const shipmentNumber = snap.trackingNumber;
-
-  const originalShipmentStatus = snap.data.CurrentStatus.state;
+  const originalShipmentStatus = data.CurrentStatus.state;
   let EnglishShipmentStatus = originalShipmentStatus.replace(/_/g, " ");
   if(language === 'ar') {
     if(originalShipmentStatus === 'DELIVERED' ) {
@@ -23,11 +22,11 @@ const ShipmentGeneralInformation = () => {
 
   }
 
-  const promisedDateFromApi = snap.data.PromisedDate;
+  const promisedDateFromApi = data.PromisedDate;
   const promisedDate = promisedDateFromApi? moment(promisedDateFromApi).format('LL') : 'N/A';
 
 
-  const lastUpdateFromApi = snap.data.CurrentStatus.timestamp;
+  const lastUpdateFromApi = data.CurrentStatus.timestamp;
   const lastUpdate = lastUpdateFromApi? moment(lastUpdateFromApi).format('llll') : 'N/A';
 
 

@@ -1,26 +1,19 @@
-import React, { useEffect } from "react";
+import React, { Suspense } from "react";
 import TrackingNavbar from "../components/TrackingNavbar";
-import { useSnapshot } from "valtio";
-import state from "../store";
+
 import ShipmentGeneralInformation from "../components/ShipmentGeneralInformation";
 import ShipmentStepper from "../components/ShipmentStepper";
 import ShipmentLocation from "../components/ShipmentLocation";
 import Table from "../components/Table";
+import Loader from "../components/Loader";
+
 
 const ShipmentDetails = () => {
-  const snap = useSnapshot(state);
 
-  useEffect(() => {
-    fetch(`https://tracking.bosta.co/shipments/track/${snap.trackingNumber}`)
-      .then((response) => response.json())
-      .then((data) => (state.data = data))
-      .catch((error) =>
-        console.error("error fetching shipment details", error)
-      );
-  }, [snap.trackingNumber]);
 
   return (
     <div>
+      <Suspense fallback={<Loader />}>
       <TrackingNavbar />
 
       <div className="mt-10">
@@ -36,6 +29,7 @@ const ShipmentDetails = () => {
           <ShipmentLocation />
         </div>
       </div>
+      </Suspense>
     </div>
   );
 };

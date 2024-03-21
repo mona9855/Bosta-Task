@@ -1,16 +1,17 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { useSnapshot } from "valtio";
-import state from "../store";
+
 import { apiArabicData } from "../translations/apiArabicData";
 import moment from "moment";
+import { useSelector } from "react-redux";
 
 const Table = () => {
-  const snap = useSnapshot(state);
-  const language = snap.selectedLanguage;
+    const language = useSelector(state => state.selectedLanguage.value);
+    const data = useSelector(state => state.data.value);
+
   const english = language === "en" ? true : false;
-  const apiData = english ? snap.data.TransitEvents : apiArabicData;
-  const shipmentStatus = snap.data.CurrentStatus.state;
+  const apiData = english ? data.TransitEvents : apiArabicData;
+  const shipmentStatus = data.CurrentStatus.state;
 
   let reasonColor;
   if (shipmentStatus === "DELIVERED") {

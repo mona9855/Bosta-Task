@@ -1,10 +1,16 @@
-import { proxy, subscribe } from "valtio";
 
-const storedStateString = localStorage.getItem('todosState');
-const initialState = storedStateString ? JSON.parse(storedStateString) : { selectedLanguage: 'en', trackingNumber: '', data: [], };
-const state = proxy(initialState);
-subscribe(state, () => {
-  localStorage.setItem('todosState', JSON.stringify(state));
+
+import { configureStore } from "@reduxjs/toolkit";
+import selectedLanguageReducer from "../features/selectedLanguageSlice";
+import trackingNumberReducer from '../features/trackingNumberSlice';
+import dataReducer from '../features/dataSlice';
+
+ 
+export const store = configureStore({
+  reducer: {
+    selectedLanguage: selectedLanguageReducer,
+    trackingNumber: trackingNumberReducer,
+    data: dataReducer,
+  },
 });
-export default state;
 

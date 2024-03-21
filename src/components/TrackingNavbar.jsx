@@ -1,10 +1,11 @@
 import React from "react";
 import LanguageSelector from "./LanguageSelector";
-import { useSnapshot } from "valtio";
-import state from "../store";
+import { useSelector } from "react-redux";
+
 
 const TrackingNavbar = () => {
-  const snap = useSnapshot(state);
+    const language = useSelector(state => state.selectedLanguage.value);
+    
 
   return (
     <div className="px-12 xxs:px-4 xs:px-8 py-8 bg-[#f3fafb]">
@@ -12,7 +13,7 @@ const TrackingNavbar = () => {
         {/* Logo */}
         <div>
           <a href="/">
-            {snap.selectedLanguage === "en" ? (
+            {language === "en" ? (
               <svg
                 className="xxs:w-[80px]"
                 width="111"

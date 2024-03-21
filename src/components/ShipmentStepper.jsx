@@ -1,75 +1,69 @@
 import React from "react";
-import { useSnapshot } from "valtio";
-import state from "../store";
 import { ConfigProvider, Steps } from "antd";
+import { useSelector } from "react-redux";
 
 const ShipmentStepper = () => {
-  const snap = useSnapshot(state);
-  const shipmentStatus = snap.data.CurrentStatus.state;
+  const language = useSelector((state) => state.selectedLanguage.value);
+  const data = useSelector((state) => state.data.value);
+
+  const shipmentStatus = data.CurrentStatus.state;
   let activeStep = "";
   let stepperColor = "";
-  const language = snap.selectedLanguage;
 
 
   let subTitle;
-  if(language === 'en') {
+  if (language === "en") {
     subTitle =
-     shipmentStatus === "CANCELLED"
-      ? "the customer is not in the address."
-      : "Shipper cancelled the order.";
-
+      shipmentStatus === "CANCELLED"
+        ? "the customer is not in the address."
+        : "Shipper cancelled the order.";
   } else {
     subTitle =
-     shipmentStatus === "CANCELLED"
-      ? "العميل غير متواجد في العنوان"
-      : "تم إلغاء الشحنة من التاجر";
+      shipmentStatus === "CANCELLED"
+        ? "العميل غير متواجد في العنوان"
+        : "تم إلغاء الشحنة من التاجر";
   }
-      
-  const steps = language === 'en'? 
-  (
-    [
-      {
-        step: 1,
-        title: "Picked Up",
-      },
-      {
-        step: 2,
-        title: "Processing",
-      },
-      {
-        step: 3,
-        title: "Out for Delivery",
-        subTitle: subTitle,
-      },
-      {
-        step: 4,
-        title: "Delivered",
-      },
-    ]
-  )
-:
-(
-  [
-    {
-      step: 1,
-      title: "تم إنشاء الشحنة",
-    },
-    {
-      step: 2,
-      title: "تم إستلام الشحنة من التاجر",
-    },
-    {
-      step: 3,
-      title: "الشحنة خرجت للتسليم",
-      subTitle: subTitle,
-    },
-    {
-      step: 4,
-      title: "تم التسليم",
-    },
-  ]
-)
 
+  const steps =
+    language === "en"
+      ? [
+          {
+            step: 1,
+            title: "Picked Up",
+          },
+          {
+            step: 2,
+            title: "Processing",
+          },
+          {
+            step: 3,
+            title: "Out for Delivery",
+            subTitle: subTitle,
+          },
+          {
+            step: 4,
+            title: "Delivered",
+          },
+        ]
+      : [
+          {
+            step: 1,
+            title: "تم إنشاء الشحنة",
+          },
+          {
+            step: 2,
+            title: "تم إستلام الشحنة من التاجر",
+          },
+          {
+            step: 3,
+            title: "الشحنة خرجت للتسليم",
+            subTitle: subTitle,
+          },
+          {
+            step: 4,
+            title: "تم التسليم",
+          },
+        ];
 
   if (shipmentStatus === "DELIVERED") {
     activeStep = steps.length;
@@ -93,9 +87,8 @@ const ShipmentStepper = () => {
             components: {
               Steps: {
                 colorPrimary: stepperColor,
-                fontFamily: language === 'en'? 'poppins' : 'cairo'
+                fontFamily: language === "en" ? "poppins" : "cairo",
               },
-              
             },
           }}
         >

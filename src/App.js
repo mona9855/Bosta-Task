@@ -2,22 +2,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Tracking from "./pages/Tracking";
 import ShipmentDetails from "./pages/ShipmentDetails";
 import { IntlProvider } from "react-intl";
-import { useSnapshot } from "valtio";
-import state from "./store";
 import { locales } from "./translations/ar";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function App() {
-  const snap = useSnapshot(state);
+  const language = useSelector(state => state.selectedLanguage.value);
 
   useEffect(() => {
-    const dir = snap.selectedLanguage === "en"? 'ltr' : 'rtl';
+    const dir = language === "en"? 'ltr' : 'rtl';
     document.documentElement.dir = dir;
-    document.documentElement.style.fontFamily = snap.selectedLanguage === "en"? 'Poppins, sans-serif' : 'Cairo, sans-serif';
- }, [snap.selectedLanguage]);
+    document.documentElement.style.fontFamily = language === "en"? 'Poppins, sans-serif' : 'Cairo, sans-serif';
+ }, [language]);
 
   return (
-    <IntlProvider locale={snap.selectedLanguage} defaultLocale='en' messages={locales[snap.selectedLanguage]}
+    <IntlProvider locale={language} defaultLocale='en' messages={locales[language]}
     >
       <BrowserRouter>
         <Routes>
