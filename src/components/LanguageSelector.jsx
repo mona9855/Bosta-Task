@@ -5,6 +5,7 @@ import {setSelectedLanguage} from "../features/selectedLanguageSlice";
 
 
 const LanguageSelector = () => {
+  const language = useSelector(state => state.selectedLanguage.value);
   const dispatch = useDispatch() 
   const handleLanguageChange = (e) => {
     dispatch(setSelectedLanguage(e.target.value));
@@ -16,7 +17,7 @@ const LanguageSelector = () => {
       <select
         name="languages"
         className="px-4 py-2 xxs:text-xs rounded"
-        defaultValue="en"
+        defaultValue={language}
         onChange={handleLanguageChange}
       >
         <option value="en">
