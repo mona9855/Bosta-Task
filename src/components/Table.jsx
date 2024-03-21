@@ -38,7 +38,7 @@ const Table = () => {
         />
       </h1>
 
-      <div className={`mt-4 ${fontClass} font-normal overflow-x-auto h-[400px] overflow-y-scroll`}>
+      <div className={`mt-4 ${fontClass} font-normal overflow-x-auto max-h-[400px] overflow-y-scroll`}>
         <table className="w-[100%]">
           <thead className=" bg-slate-300 rounded-xl text-center">
             <tr >

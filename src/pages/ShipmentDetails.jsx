@@ -19,7 +19,11 @@ const ShipmentDetails = () => {
 
       {
         isLoading? 
-        (<p>,<FormattedMessage defaultMessage="Loading please wait....." id="loading.wait"/></p>)
+        (
+          <div className="w-[100vw] h-[50vh] flex items-center justify-center">
+          <p><FormattedMessage defaultMessage="Loading please wait....." id="loading.wait"/></p>
+        </div>
+        )
         :
         (
           <div className="mt-10">
@@ -35,6 +39,7 @@ const ShipmentDetails = () => {
           <ShipmentLocation />
         </div>
       </div>
+     
         )
       }
       
