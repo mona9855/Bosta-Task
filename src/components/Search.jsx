@@ -38,7 +38,7 @@ const Search = () => {
       dispatch(setIsLoading(false));
  
     } catch (err) {
-      console.log(err.message);
+      
     }
   };
 
