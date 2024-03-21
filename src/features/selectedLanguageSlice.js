@@ -4,7 +4,7 @@ export const selectedLanguageSlice = createSlice({
     name: "selectedLanguage",
     initialState: {
         value: 'en'
-    },
+    }, 
     reducers: {
         setSelectedLanguage: (state, action) => {
             state.value = action.payload

@@ -1,6 +1,7 @@
 import React from "react";
 import LanguageSelector from "./LanguageSelector";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 
 const TrackingNavbar = () => {
@@ -12,7 +13,7 @@ const TrackingNavbar = () => {
       <div className="flex items-center justify-between ">
         {/* Logo */}
         <div>
-          <a href="/">
+          <NavLink to="/">
             {language === "en" ? (
               <svg
                 className="xxs:w-[80px]"
@@ -81,7 +82,7 @@ const TrackingNavbar = () => {
                 ></path>
               </svg>
             )}
-          </a>
+          </NavLink>
         </div>
 
         {/* Language */}

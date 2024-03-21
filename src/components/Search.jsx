@@ -1,19 +1,27 @@
-
 import { useIntl } from "react-intl";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { setTrackingNumber } from "../features/trackingNumberSlice";
-import { setSelectedLanguage } from "../features/selectedLanguageSlice";
 import { Link } from "react-router-dom";
 import { setData } from "../features/dataSlice";
- 
+import { useEffect } from "react";
+import { setIsLoading } from "../features/isLoadingSlice";
+
 const Search = () => {
-  const language = useSelector(state => state.selectedLanguage.value);
-  const trackingNumber = useSelector(state => state.trackingNumber.value);
-  const data = useSelector(state => state.data.value);
-
+  const language = useSelector((state) => state.selectedLanguage.value);
+  const trackingNumber = useSelector((state) => state.trackingNumber.value);
   const dispatch = useDispatch();
+  
 
+  // useEffect(() => {
 
+  //   fetch(`https://tracking.bosta.co/shipments/track/${trackingNumber}`)
+  //   .then((response) => response.json())
+  //   .then((data) => {dispatch(setIsLoading(false)); dispatch(setData(data)); console.log(apiData);})
+  //   .catch((error) =>
+  //     console.error("error fetching shipment details", error)
+  //   );
+
+  // }, [])
 
   const intl = useIntl();
   const placeholder =
@@ -22,29 +30,28 @@ const Search = () => {
       : intl.formatMessage({ id: "tracking.input" });
 
   const inputBorder =
-    language === "en"
-      ? "rounded-l-xl border-r-0"
-      : "rounded-r-xl border-l-0";
+    language === "en" ? "rounded-l-xl border-r-0" : "rounded-r-xl border-l-0";
   const searchSpanBorder =
-    language === "en"
-      ? "rounded-r-xl border-l-0"
-      : "rounded-l-xl border-r-0";
+    language === "en" ? "rounded-r-xl border-l-0" : "rounded-l-xl border-r-0";
 
+  const handleInputChange = (e) => {
+    dispatch(setTrackingNumber(e.target.value));
+  };
 
-    const handleInputChange = (e) => {
-      dispatch(setTrackingNumber(e.target.value));
-      
+  const handleSubmit = async () => {
+    try {
+      const data = await (
+        await fetch(
+          `https://tracking.bosta.co/shipments/track/${trackingNumber}`
+        )
+      ).json();
+      dispatch(setData(data));
+      dispatch(setIsLoading(false));
+ 
+    } catch (err) {
+      console.log(err.message);
     }
-
-    const handleSearchSubmit = () => {
-        fetch("https://tracking.bosta.co/shipments/track/" + trackingNumber)
-      .then((response) => response.json())
-      .then((data) => dispatch(setData(data)))
-      .catch((error) =>
-        console.error("error fetching shipment details", error)
-      );
-    };
-
+  };
 
   return (
     <div className="w-[50%] sm:w-[70%] xxs:w-[90%] flex absolute bottom-1">
@@ -59,8 +66,7 @@ const Search = () => {
       <Link
         to="/shipmentDetails"
         className={`bg-[#e30613] p-3 ${searchSpanBorder}`}
-        onClick={handleSearchSubmit}
-       
+        onClick={handleSubmit}
       >
         <svg
           width="30"
