@@ -5,38 +5,22 @@ import ShipmentStepper from "../components/ShipmentStepper";
 import ShipmentLocation from "../components/ShipmentLocation";
 import Table from "../components/Table";
 import { useSelector } from "react-redux";
-import { FormattedMessage } from "react-intl";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 const ShipmentDetails = () => {
   const isLoading = useSelector((state) => state.isLoading.value);
-  const data = useSelector((state) => state.data.value)? true: false;
+  const error = useSelector((state) => state.error.value);
 
-  return (
+  return error ? (
+    <Error />
+  ) : (
     <div>
       <TrackingNavbar />
 
       {isLoading ? (
-        data ? (
-          <div className="w-[100vw] h-[50vh] flex items-center justify-center p-2">
-            <p>
-              <FormattedMessage
-                defaultMessage="Loading please wait....."
-                id="loading.wait"
-              />
-            </p>
-          </div>
-        ) : (
-          <div className="w-[100vw] h-[50vh] flex items-center justify-center text-white p-2">
-          <p className="bg-red-600 py-6 px-8 rounded-xl">
-            <FormattedMessage
-              defaultMessage="No data available, invalid shipment number. Please try again...☹️ "
-              id="no.data"
-            />
-          </p>
-        </div>
-        )
+        <Loading />
       ) : (
-       
         <div className="mt-10">
           {/* Shipment details general information */}
           <ShipmentGeneralInformation />

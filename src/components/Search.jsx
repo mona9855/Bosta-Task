@@ -4,13 +4,12 @@ import { setTrackingNumber } from "../features/trackingNumberSlice";
 import { Link } from "react-router-dom";
 import { setData } from "../features/dataSlice";
 import { setIsLoading } from "../features/isLoadingSlice";
+import { setError } from "../features/errorSlice";
 
 const Search = () => {
   const language = useSelector((state) => state.selectedLanguage.value);
   const trackingNumber = useSelector((state) => state.trackingNumber.value);
   const dispatch = useDispatch();
-  
-
 
   const intl = useIntl();
   const placeholder =
@@ -34,11 +33,15 @@ const Search = () => {
           `https://tracking.bosta.co/shipments/track/${trackingNumber}`
         )
       ).json();
-      dispatch(setData(data));
-      dispatch(setIsLoading(false));
- 
+      if (data.error) {
+        dispatch(setError(true));
+      } else {
+        dispatch(setData(data));
+        dispatch(setError(false));
+        dispatch(setIsLoading(false));
+      }
     } catch (err) {
-      
+      console.log(err);
     }
   };
 
