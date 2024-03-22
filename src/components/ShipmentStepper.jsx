@@ -12,16 +12,20 @@ const ShipmentStepper = () => {
 
 
   let subTitle;
-  if (language === "en") {
-    subTitle =
-      shipmentStatus === "CANCELLED"
-        ? "the customer is not in the address."
-        : "Shipper cancelled the order.";
+  if(shipmentStatus !== 'DELIVERED') {
+    if (language === "en") {
+      subTitle =
+        shipmentStatus === "CANCELLED"
+          ? "the customer is not in the address."
+          : "Shipper cancelled the order.";
+    } else {
+      subTitle =
+        shipmentStatus === "CANCELLED"
+          ? "العميل غير متواجد في العنوان"
+          : "تم إلغاء الشحنة من التاجر";
+    }
   } else {
-    subTitle =
-      shipmentStatus === "CANCELLED"
-        ? "العميل غير متواجد في العنوان"
-        : "تم إلغاء الشحنة من التاجر";
+    subTitle = '';
   }
 
   const steps =
