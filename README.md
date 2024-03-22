@@ -14,11 +14,11 @@
   
 - Live Link: https://bosta-task-delta.vercel.app/
  
-![homeEnglish](https://github.com/mona9855/Bosta-Task/assets/89538929/113b01e4-ca8b-4023-af03-8c85723a61c9)
-![homeArabic](https://github.com/mona9855/Bosta-Task/assets/89538929/b8d0f88a-1f46-442a-adb3-0bfab35ba5a5)
-![cancelledEnglish](https://github.com/mona9855/Bosta-Task/assets/89538929/cd0bcbac-f180-4581-8903-1d9dc28bcd8a)
-![Screenshot 2024-03-20 142026](https://github.com/mona9855/Bosta-Task/assets/89538929/ad041c9c-1c65-430a-a2f7-e9af71ab5600)
-![tableEnglish](https://github.com/mona9855/Bosta-Task/assets/89538929/bb1d6f06-555b-4a46-a046-5c63db5e1ba2)
+![1](https://github.com/mona9855/Bosta-Task/assets/89538929/62d886c4-ed4f-4594-831f-5bae5662075e)
+![2](https://github.com/mona9855/Bosta-Task/assets/89538929/af6aed93-edf5-4e26-8198-107efd6bc785)
+![3](https://github.com/mona9855/Bosta-Task/assets/89538929/2d31108c-11f1-4e22-a182-236a07cafa63)
+![4](https://github.com/mona9855/Bosta-Task/assets/89538929/b1604dcf-5879-407f-ae75-c9a59c102084)
+
 
 
 
