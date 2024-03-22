@@ -12,7 +12,8 @@
   
 - Responsiveness: Responsive.
   
-- Live Link: https://bosta-task-delta.vercel.app/shipmentDetails
+- Live Link: [[https://bosta-task-delta.vercel.app/shipmentDetails](https://bosta-task-delta.vercel.app/)](https://bosta-task-delta.vercel.app/
+)
  
 ![homeEnglish](https://github.com/mona9855/Bosta-Task/assets/89538929/113b01e4-ca8b-4023-af03-8c85723a61c9)
 ![homeArabic](https://github.com/mona9855/Bosta-Task/assets/89538929/b8d0f88a-1f46-442a-adb3-0bfab35ba5a5)
