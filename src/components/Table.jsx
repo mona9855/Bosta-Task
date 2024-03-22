@@ -31,14 +31,14 @@ const Table = () => {
 
   return (
     <div className="font-bold">
-      <h1>
+      <h1 className="xs:text-sm">
         <FormattedMessage
           defaultMessage="Shipment Details"
           id="shpment.details"
         />
       </h1>
 
-      <div className={`mt-4 ${fontClass} font-normal overflow-x-auto max-h-[400px] overflow-y-scroll`}>
+      <div className={`mt-4 ${fontClass} font-normal overflow-x-auto max-h-[400px] overflow-y-scroll md:text-base sm:text-sm xs:text-xs`}>
         <table className="w-[100%]">
           <thead className=" bg-slate-300 rounded-xl text-center">
             <tr >

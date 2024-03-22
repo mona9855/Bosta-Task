@@ -9,7 +9,7 @@ const ShipmentLocation = () => {
 
   return (
     <div className='flex flex-col gap-3 lg:mt-5'>
-      <h1 className='font-bold'>
+      <h1 className='font-bold xs:text-sm'>
         <FormattedMessage defaultMessage="Shipment Location" id='location'/>
       </h1>
       <div className='bg-slate-200 p-5 rounded-xl border-2 lg:w-[50%]'>

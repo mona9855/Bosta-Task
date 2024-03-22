@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: {
         'poppins': ['poppins', 'sans-serif'],
         'cairo': ['Cairo', 'sans-serif'],
+        'mona': ['Playpen Sans', 'cursive'],
       },
     },
   },

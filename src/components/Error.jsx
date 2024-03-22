@@ -1,6 +1,6 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
-import TrackingNavbar from '../components/TrackingNavbar'
+import TrackingNavbar from './TrackingNavbar'
 
 const Error = () => {
   return (

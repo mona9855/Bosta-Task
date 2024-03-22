@@ -6,6 +6,7 @@ import valueWord from "../assets/valueWord.png";
 import valueLogo from "../assets/valueLogo.png";
 import { FormattedMessage } from "react-intl";
 import Search from "../components/Search";
+import Love from "../components/Love";
 
 const Tracking = () => {
   return (
@@ -63,6 +64,11 @@ const Tracking = () => {
           alt="value logo"
           className="w-[100px] xxs:w-[70px] xs:w-[90px] object-contain"
         />
+      </div>
+
+      {/* my signature */}
+      <div>
+        <Love />
       </div>
     </div>
   );
